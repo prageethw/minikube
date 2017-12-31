@@ -38,7 +38,7 @@ const MinikubeHome = "MINIKUBE_HOME"
 // Minipath is the path to the user's minikube dir
 func GetMinipath() string {
 	if os.Getenv(MinikubeHome) == "" {
-		return DefaultMinipath
+		return (filepath.Join(homedir.HomeDir(), ".minikube"))
 	}
 	if filepath.Base(os.Getenv(MinikubeHome)) == ".minikube" {
 		return os.Getenv(MinikubeHome)
